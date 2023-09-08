@@ -14,9 +14,14 @@ def get_swim_data(folder, filename):
 
     converts = []
     for value in times:
-        minutes, rest = value.split(":")
-        seconds, hundredths = rest.split(".")
+        if ":" in value:
+            minutes, rest = value.split(":")
+            seconds, hundredths = rest.split(".")
+        else:
+            minutes = 0
+            seconds, hundredths = value.split(".")
         converts.append(int(minutes)*60*100 + int(seconds)*100 + int(hundredths))
+    
     average = statistics.mean(converts)
     mins_secs, hundredths = str(round(average/100, 2)).split(".")
     mins_secs = int(mins_secs)
