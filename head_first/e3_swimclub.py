@@ -27,6 +27,6 @@ def get_swim_data(folder, filename):
     mins_secs = int(mins_secs)
     minutes = mins_secs//60
     seconds = mins_secs - minutes*60
-    average_str = str(minutes) + ":" + str(seconds) + "." + hundredths
+    average_str = f"{minutes}:{seconds}.{hundredths}"
     
-    return swimmer, age, distance, stroke, average, average_str, times
+    return swimmer, age, distance, stroke, times, average_str, converts
